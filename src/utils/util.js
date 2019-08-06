@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 const TARO_ENV = Taro.getEnv();  //weapp h5 alipay
 
-
 export const promisify = (func, ctx) => {
     // 返回一个新的function
     return function () {
