@@ -1,0 +1,55 @@
+@import '../../app.scss';
+
+#index{
+    // 用户信息
+    .user{
+        padding-top: 160px;
+        @include flexBox(center, column nowrap);
+        .user-avatar{
+            @include wh(150px);
+            background-color: lightblue;
+            box-shadow: 0 0 12px rgba(57, 125, 123, 0.1);
+            border-radius: 8px;
+        }
+        .user-name{
+            @include hl(80px);
+            @include fontSizeColor(34px, #aaa);
+            @include textOverflow(600px);
+            text-align:center;
+        }
+    }
+    // 按钮
+    .handle-from{
+        padding-top: 100px;
+        height: 300px;
+        margin: 0 auto;
+        display: block;
+        .handle-btn{
+            padding-top: 20px;
+            @include flexBox(center, column nowrap);
+            @include wh(300px);
+            border: 8px solid #bae7e3;
+            border-radius: 50%;
+            background: $themeColor;
+            box-shadow: 0px 0px 81px rgba(48, 205, 200, 0.3);
+            .handle-icon{
+                @include wh(70px);
+            }
+            .handle-text{
+                padding-top: 10px;
+                @include fontSizeColor(38px, #fff)
+            }
+        }
+    }
+    // 短信授权手机
+    .tips{
+        padding-top: 40px;
+        @include fontSizeColor(26px, #aaa);
+        text-align: center;
+        .tips-handle{
+            color: $themeColor;
+        }
+    }
+}
+
+

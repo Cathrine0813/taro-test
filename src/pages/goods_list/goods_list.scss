@@ -1,0 +1,84 @@
+@import '../../app.scss';
+
+#goodsList{
+    height: 100vh;
+    background: $bgColor;
+    .notice-wrap{
+        padding: 24px;
+        padding-bottom: 0;
+        background-color: lightblue;
+        .notice-box{
+            @include hl(82px);
+            background-color: #F9ECCF;
+            border-radius: 16px;
+            @include fontSizeColor(30px,#704D04);
+            box-shadow: 4px 4px 14px #EDEAE3;
+            padding-left: 70px;
+            position: relative;
+            &::before{
+                content: '';
+                display: inline-block;
+                @include wh(34px);
+                background: url('../../assets/images/goods_icon/notice.png') no-repeat;
+                background-size: cover;
+                position: absolute;
+                left: 20px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            .notice-swiper{
+                @include hl(82px);
+                overflow: hidden;
+            }
+        }
+    }
+
+    .tips{
+        @include fontSizeColor(26px,$tipsColor);
+        line-height: 98px;
+        text-align: center;
+    }
+
+    .goods-wrap{
+        background-color: #fff;
+        @include flexBox(between);
+        padding: 26px 24px 0;
+        .goods-item{
+            background-color: lightcoral;
+            @include wh(33.33%, 300px);
+            margin-bottom: 32px;
+            .goods-cover{
+                @include wh(100%, 196px);
+                position: relative;
+                &::after{
+                    content: '';
+                    display: inline-block;
+                    @include wh(100%);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0, 0, 0, 0.04);
+                }
+                image{
+                    @include wh(100%);
+                    @each $name in sell, new {
+                        &.goods-#{$name}{
+                            background-color: #F16B3C;
+                            // boder
+                            &::after{
+                                content: '';
+                            }
+                        }
+                    }
+                    &.goods-sell::after{
+                        content: '畅销';
+                    }
+                    &.goods-new::after{
+                        content: '新品';
+                    }
+                }
+            }
+        }
+    }
+}

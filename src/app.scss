@@ -1,0 +1,92 @@
+/*
+    function
+*/
+
+
+/*
+    mixin
+*/
+//宽 高
+@mixin wh($w, $h:$w){
+	width: $w;
+	height: $h;
+}
+//高 行高
+@mixin hl($h, $line: $h){
+	height: $h;
+    line-height: $line;
+}
+//字体大小、行高、字体
+@mixin fontBase($size, $line-height, $family: "Pingfang SC", $color: "#555") {  
+	font: #{$size}/#{$line-height} $family;
+    color: $color;
+}
+//字体大小，颜色
+@mixin fontSizeColor($size, $color){
+	font-size: $size;
+	color: $color;
+}
+// 多行溢出 默认1行
+@mixin textOverflow($w, $line : 1) { 
+    width: $w;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    @if $line > 1 { 
+        display: -webkit-box;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+    } @else {
+        white-space: nowrap
+　　}
+}
+// 背景图片地址和大小 默认居中
+@mixin bis($url, $size : "cover" , $pos: 50%) { 
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: $size;
+    background-position: $pos;
+}
+// 弹性盒子布局
+// @mixin flexBox() {
+//     display: flex;
+//     // flex-direction: $dir;   //主轴的方向 row(默认) | row-reverse | column | column-reverse;
+//     // flex-wrap: $wrap;       //轴线 nowrap(默认) | wrap | wrap-reverse;
+//     flex-flow: $flow;       //<flex-direction> | <flex-wrap>
+//     justify-content: $j_c;  //主轴上的对齐方式 flex-start(默认) | flex-end | center | space-between | space-around;
+//     align-items: $item;     //交叉轴上对齐方式 flex-start(默认) | flex-end | center | baseline | stretch;
+//     align-content: $a_c;    //多根轴线的对齐方式 flex-start(默认)  | flex-end | center | space-between | space-around | stretch; 只有一根轴线，该属性不起作用
+// }
+// 弹性盒子布局 $type center-垂直居中 between-两边对称
+@mixin flexBox( $type : "center", $flow: "row nowrap"){
+    display: flex;
+    flex-flow: $flow;
+    align-items:center;
+    @if $type == center { 
+        justify-content: center;
+        align-content:center;
+    } @else {
+        justify-content: space-between;
+        align-content: space-between
+　　}
+}
+// @include clearfix;
+
+/* 
+    var
+*/
+// var
+$themeColor:#60c0bd;
+$bgColor: #f9f9f9;
+$borderColor:#eee;
+$fontMainColor:#555;
+// $fontSubColor:#777;
+$tipsColor:#777;
+
+/*
+    global
+*/
+page{
+    background-color: #fff;
+    @include fontBase(32px, 32px);
+    overflow-x: hidden;
+}
