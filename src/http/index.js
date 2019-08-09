@@ -54,7 +54,7 @@ class Http {
 				Taro.hideNavigationBarLoading()
                 if (res.statusCode == HTTP_STATUS.SUCCESS) {
                     resolve(typeof res.data === 'object' ? res.data : JSON.parse(res.data))
-                // } else if (res.statusCode == HTTP_STATUS.SUCCESS) {
+                // } else if (res.statusCode == HTTP_STATUS.NOT_FOUND) {
                 //     Taro.showToast({ title: '请求资源不存在' })
                 //     reject(res)
                 // } else if (res.statusCode == HTTP_STATUS.BAD_GATEWAY) {
